@@ -7,4 +7,6 @@ router.get('/',tareasController.getTareas)
 
 router.post('/', tareasController.addTarea)
 
+router.delete('/:id', tareasController.deleteTarea);
+
 module.exports = router;

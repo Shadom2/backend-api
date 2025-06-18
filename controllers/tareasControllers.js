@@ -11,3 +11,14 @@ exports.addTarea = (req,res) => {
     tareas.push(nuevo);
     res.status(201).json(nuevo);
 }
+
+exports.eliminarTarea=(req,res)=>{
+    let id = Number(req.params.id)
+    let tareaExistente = tareas.find((t)=>t.id === id);
+    if (!tareaExistente){
+        return res.status(404).json({error: 'Tarea no encontrada'})
+    }
+
+    tareas = tareas.filter((t) => t.id !== id);
+    res.json({message: "Tarea eliminada exitosamente"});
+};
